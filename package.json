@@ -1,0 +1,11 @@
+{
+  "name": "CRM-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/MikeFranco/CRM-backend.git",
+  "author": "MikeFranco <mfranco_98@yahoo.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
