@@ -9,6 +9,7 @@ const cookieParser = require('cookie-parser');
 
 const port = process.env.PORT || 5001;
 const auth = require('./routes/authRoutes.js');
+const groups = require('./routes/groupsRoutes.js');
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -48,6 +49,7 @@ app.use(passport.session());
 app.use(cookieParser());
 
 app.use('/', auth);
+app.use('/', groups);
 
 //Routes
 app.get('/', (req, res) => {
