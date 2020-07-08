@@ -1,13 +1,14 @@
-require('dotenv/config').config();
+require('dotenv/config');
 const app = require('express')();
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const passport = require('./config/passport');
 const cors = require('cors');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-const postsRoute = require('./routes/posts');
 
 const port = process.env.PORT || 5001;
+const auth = require('./routes/authRoutes.js');
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -46,7 +47,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(cookieParser());
 
-app.use('/posts', postsRoute);
+app.use('/', auth);
 
 //Routes
 app.get('/', (req, res) => {
