@@ -32,7 +32,7 @@ const userSchema = new Schema(
       type: String
     },
     bought: {
-      type: String
+      type: Boolean
     },
     purchased: {
       type: String
