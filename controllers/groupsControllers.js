@@ -27,57 +27,23 @@ exports.getGroupsById = async (req, res) => {
   res.json({ ok: true, getGroupsById });
 };
 
-//exports.updateDevice = async (req, res) => {
-//  const { _id, type, label, manufacturer, state } = req.body.newDeviceInfo;
-//
-//  const data = {
-//    _id,
-//    type,
-//    label,
-//    manufacturer,
-//    state
-//  };
-//
-//  const updatedDevice = await Devices.findByIdAndUpdate(_id, data, {
-//    new: true
-//  });
-//  res.json({ ok: true, updatedDevice });
-//};
-//
-//exports.updateDeviceState = async (req, res) => {
-//  const { id, deviceState } = req.body;
-//
-//  const data = {
-//    id,
-//    state: deviceState
-//  };
-//
-//  const updatedDeviceState = await Devices.findByIdAndUpdate(id, data, {
-//    new: true
-//  });
-//  res.json({ ok: true, updatedDeviceState });
-//};
-//
-//exports.toggleTurnOff = async (req, res) => {
-//  const { id, turnOnValue } = req.body;
-//
-//  const data = {
-//    id,
-//    state: {
-//      turnedOn: turnOnValue
-//    }
-//  };
-//
-//  const toggleTurnedOff = await Devices.findByIdAndUpdate(id, data, {
-//    new: true
-//  });
-//  res.json({ ok: true, toggleTurnedOff });
-//};
-//
-//exports.deleteDevice = async (req, res) => {
-//  const { id } = req.params;
-//
-//  await Devices.findByIdAndDelete(id);
-//  res.json({ ok: true, msg: 'Device deleted' });
-//};
-//
+exports.updateGroup = async (req, res) => {
+  const { _id, name, users } = req.body.group;
+
+  const data = {
+    name,
+    users
+  };
+
+  const updatedGroup = await Group.findByIdAndUpdate(_id, data, {
+    new: true
+  });
+  res.json({ ok: true, updatedGroup });
+};
+
+exports.deleteGroup = async (req, res) => {
+  const { id } = req.query;
+
+  await Group.findByIdAndDelete(id);
+  res.json({ ok: true, msg: 'Group deleted' });
+};

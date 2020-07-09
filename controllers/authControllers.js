@@ -1,10 +1,11 @@
 const User = require('../models/User');
 
 exports.signup = async (req, res) => {
-
   const {
-    name,
-    lastName,
+    firstName,
+    secondName,
+    firstLastName,
+    secondLastName,
     email,
     password,
     phone,
@@ -15,8 +16,10 @@ exports.signup = async (req, res) => {
   } = req.body;
   const user = await User.register(
     {
-      name,
-      lastName,
+      firstName,
+      secondName,
+      firstLastName,
+      secondLastName,
       email,
       password,
       phone,
