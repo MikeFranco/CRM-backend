@@ -1,12 +1,12 @@
 const Group = require('../models/Group');
 
 exports.createGroup = async (req, res) => {
-  const { name, users, userId } = req.body.group;
+  const { name, users, adminId } = req.body.group;
 
   const data = {
     name,
     users,
-    userId
+    adminId
   };
   const createGroup = await Group.create(data);
   res.json({ ok: true, createGroup });
@@ -20,9 +20,9 @@ exports.createGroup = async (req, res) => {
 //};
 
 exports.getGroupsById = async (req, res) => {
-  const { userId } = req.query;
+  const { adminId } = req.query;
 
-  const getGroupsById = await Group.find({ userId });
+  const getGroupsById = await Group.find({ adminId });
 
   res.json({ ok: true, getGroupsById });
 };

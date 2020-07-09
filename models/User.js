@@ -36,6 +36,9 @@ const userSchema = new Schema(
     },
     purchased: {
       type: String
+    },
+    adminId: {
+      type: String
     }
   },
   { versionKey: false }

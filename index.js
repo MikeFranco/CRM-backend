@@ -10,11 +10,15 @@ const cookieParser = require('cookie-parser');
 const port = process.env.PORT || 5001;
 const auth = require('./routes/authRoutes.js');
 const groups = require('./routes/groupsRoutes.js');
+const users = require('./routes/usersRoutes.js');
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.header("Access-Control-Allow-Methods", "PUT,GET,POST");
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  );
+  res.header('Access-Control-Allow-Methods', 'PUT,GET,POST');
   next();
 });
 
@@ -25,10 +29,10 @@ app.use(bodyParser.json());
 
 app.use(
   session({
-      resave: false,
-      saveUninitialized: true,
-      secret: 'perritoShihuahua',
-      cookie: { maxAge: 1000 * 60 * 60 }
+    resave: false,
+    saveUninitialized: true,
+    secret: 'perritoShihuahua',
+    cookie: { maxAge: 1000 * 60 * 60 }
   })
 );
 
@@ -50,8 +54,8 @@ app.use(cookieParser());
 
 app.use('/', auth);
 app.use('/', groups);
+app.use('/', users);
 
-//Routes
 app.get('/', (req, res) => {
   res.send('Nothing to see here 👀');
 });
