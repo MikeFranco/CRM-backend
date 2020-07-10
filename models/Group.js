@@ -8,7 +8,7 @@ const groupSchema = new Schema({
   users:{
     type: Array
   },
-  userId: {
+  adminId: {
     type: String,
     required: true
   }

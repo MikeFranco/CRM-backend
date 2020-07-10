@@ -41,7 +41,7 @@ const userSchema = new Schema(
       type: String
     }
   },
-  { versionKey: false }
+  { timestamps: true, versionKey: false }
 );
 
 userSchema.plugin(PLM, { usernameField: 'email' });

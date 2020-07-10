@@ -35,6 +35,7 @@ exports.signup = async (req, res) => {
 
 exports.login = async (req, res, next) => {
   const { user } = req;
+  console.log('%c⧭', 'color: #ffa640', req);
   const currentUser = await User.findById({ _id: user._id });
   res.status(200).json({ ok: true, currentUser });
 };

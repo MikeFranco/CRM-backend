@@ -2,6 +2,7 @@ const User = require('../models/User');
 
 exports.createUser = async (req, res) => {
   const data = { ...req.body.user };
+  if (data.purchased) data.bought = true;
   const createUser = await User.create(data);
   res.json({ ok: true, createUser });
 };
